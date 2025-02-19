@@ -1,12 +1,12 @@
-import React from 'react'
-import Personal from './Personal';
+// import React from 'react'
+// import Personal from './Personal';
 
-function page() {
-  return (
-    <div>
-      <Personal/>
-    </div>
-  )
-}
+// function page() {
+//   return (
+//     <div>
+//       <Personal/>
+//     </div>
+//   )
+// }
 
-export default page
+// export default page
