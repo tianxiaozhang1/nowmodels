@@ -46,13 +46,13 @@ export default function Home() {
         {/* DESKTOP */}
         <div className='hidden lg:flex lg:w-full'>
             <div className={`lg:flex lg:w-2/3 2xl:w-2/3 mx-auto justify-between ${playfairDisplay.className}`}>
-              <div className='lg:pt-10 lg:pb-8 xl:pt-16 xl:pb-12 2xl:py-12 flex items-center'>
+              <div className='lg:pt-10 lg:pb-8 2xl:py-12 flex items-center'>
                 <div className={`lg:text-3xl 2xl:text-6xl cursor-default text-zinc-800 flex`}>
                   NOW MODELS
                 </div>
               </div>
 
-              <div className='lg:pt-10 lg:pb-8 xl:pt-16 xl:pb-12 2xl:py-12 text-zinc-400 flex items-center space-x-4 xl:text-2xl xl:mt-7 '>
+              <div className='lg:pt-10 lg:pb-8 2xl:py-12 text-zinc-400 flex items-center space-x-4 xl:text-2xl xl:mt-2 '>
                 <a href={`/women`}><div className="text-zinc-600 cursor-pointer">Toronto</div></a>
                 <a href={`/newyork`}><div className="cursor-pointer hover:text-zinc-700">New York</div></a>
                 <a href={`/paris`}><div className="cursor-pointer hover:text-zinc-700">Paris</div></a>
@@ -200,7 +200,7 @@ export default function Home() {
                                       background: `url(${category.image.src})`,
                                       backgroundSize: 'cover',
                                       backgroundPosition: 'center',
-                                      height: size.height-360,
+                                      height: size.height-270,
                                       opacity: 1,
                                   }}
                               >   

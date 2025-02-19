@@ -22,16 +22,16 @@ function Footer() {
           </div>
       </div>
       {/* DESKTOP */}
-      <div className={`hidden lg:flex justify-center  pt-0 pb-9`}>
+      <div className={`hidden lg:flex justify-center pt-0 pb-4`}>
           <div>
-            <div className='mt-3 md:mt-5 xl:mb-1 xl:text-3xl text-xl text-center '><div className={`lg:text-lg 2xl:text-2xl cursor-default text-zinc-600 ${playfairDisplay.className}`}>NOW MODELS</div></div>
+            <div className='mt-3 md:mt-3 xl:mb-1 xl:text-3xl text-xl text-center '><div className={`lg:text-lg 2xl:text-2xl cursor-default text-zinc-600 ${playfairDisplay.className}`}>NOW MODELS</div></div>
             <div className='mt-1 md:mt-2 mb-3 md:mb-1 text-md lg:text-md xl:text-lg items-end space-x-8 flex justify-center text-zinc-500'>                
                 <div className='cursor-default'>292 LEXINGTON AVE</div>
                 <div className='cursor-default'>TORONTO, ON M7T8S7</div>
                 <div className='cursor-default'>TEL (416) 473-0700</div>
                 <div className='cursor-default'>FAX (416) 473-3223</div>
             </div>
-            <div className={`mt-1 md:mt-2 xl:mt-1 mb-3 md:mb-5 lg:text-lg 2xl:text-2xl space-x-16 flex justify-center uppercase text-zinc-500 ${playfairDisplay.className}`}>
+            <div className={`mt-1 md:mt-2 xl:mt-1 mb-3 md:mb-3 lg:text-lg 2xl:text-2xl space-x-16 flex justify-center uppercase text-zinc-500 ${playfairDisplay.className}`}>
                 <a href={`/privacypolicy`}><div className=''>Privacy Policy</div></a>
                 <a href={`/becomeamodel`}><div className=''>Become a Model</div></a>
                 <a href={`/talentguidelines`}><div className=''>Talent Guidelines</div></a>
