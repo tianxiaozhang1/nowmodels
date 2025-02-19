@@ -36,7 +36,7 @@ const modelCategories = [
 
 export default function Home() {
   const size = useWindowSize();
-  const sectionTitle = `mt-5 md:mt-12 xl:mt-16 flex justify-center text-center cursor-default text-4xl md:text-5xl 2xl:text-8xl text-zinc-100 drop-shadow-[0_1px_1px_rgba(100,100,100,1)] ${playfairDisplay.className}`
+  const sectionTitle = `mt-5 md:mt-12 xl:mt-6 flex justify-center text-center cursor-default text-4xl md:text-5xl 2xl:text-8xl text-zinc-100 drop-shadow-[0_1px_1px_rgba(100,100,100,1)] ${playfairDisplay.className}`
   const gradientCSS = `w-full h-1/4 bg-gradient-to-b from-transparent to-zinc-950`
 
   return (
@@ -191,7 +191,7 @@ export default function Home() {
                 })
               }
           </div>
-          <div className='hidden xl:grid xl:grid-cols-4 gap-2 mx-2'>
+          <div className='hidden xl:grid xl:grid-cols-4 gap-2 mx-2 px-12'>
               {
                 modelCategories.map((category, q) => {
                   return  <div key={q}>

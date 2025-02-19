@@ -75,7 +75,7 @@ function Personal({params: {modelName}}) {
                       <div className='w-1/3'>Eyes</div>
                     </div>
                     <div className='flex -mt-1'>
-                      <div className='w-1/3'>176 / 5&apos;9&x22;</div>
+                      <div className='w-1/3'>176 / 5&apos;9&quot;</div>
                       <div className='w-1/3'>Blond</div>
                       <div className='w-1/3'>Blue</div>
                     </div>
@@ -85,9 +85,9 @@ function Personal({params: {modelName}}) {
                       <div className='w-1/3'>Hips</div>
                     </div>
                     <div className='flex -mt-1'>
-                      <div className='w-1/3'>76 / 30&x22;</div>
-                      <div className='w-1/3'>58 / 23&x22;</div>
-                      <div className='w-1/3'>89 / 35&x22;</div>
+                      <div className='w-1/3'>76 / 30&quot;</div>
+                      <div className='w-1/3'>58 / 23&quot;</div>
+                      <div className='w-1/3'>89 / 35&quot;</div>
                     </div>
                     <div className='flex text-zinc-400 mt-3'>
                       <div className='w-1/3 '>
@@ -121,8 +121,8 @@ function Personal({params: {modelName}}) {
                         </svg>
                       </div>
                       <div className='lg:mt-12 2xl:mt-32 text-sm xl:text-md'>
-                        <div>Book</div>
-                        <div>Instagram</div>
+                        <div className='cursor-pointer'>Book</div>
+                        <a target="_blank" href="https://www.instagram.com/tianxiaozhang/" rel="noopener noreferrer"><div>Instagram</div></a>
                       </div>
                     </div>
 
@@ -169,12 +169,12 @@ function Personal({params: {modelName}}) {
                       <div className='w-full'>Shoes</div>
                     </div>
                     <div className='flex -mt-1 w-full columns-7'>
-                      <div className='w-full'>176 / 5&apos;9&x22;</div>
+                      <div className='w-full'>176 / 5&apos;9&quot;</div>
                       <div className='w-full'>Blond</div>
                       <div className='w-full'>Blue</div>
-                      <div className='w-full'>76 / 30&x22;</div>
-                      <div className='w-full'>58 / 23&x22;</div>
-                      <div className='w-full'>89 / 35&x22;</div>
+                      <div className='w-full'>76 / 30&quot;</div>
+                      <div className='w-full'>58 / 23&quot;</div>
+                      <div className='w-full'>89 / 35&quot;</div>
                       <div className='w-full'>37 / 7</div>
                     </div>
 
