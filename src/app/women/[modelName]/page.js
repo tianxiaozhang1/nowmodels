@@ -75,7 +75,7 @@ function Personal({params: {modelName}}) {
                       <div className='w-1/3'>Eyes</div>
                     </div>
                     <div className='flex -mt-1'>
-                      <div className='w-1/3'>176 / 5'9''</div>
+                      <div className='w-1/3'>176 / 5&apos;9&x22;</div>
                       <div className='w-1/3'>Blond</div>
                       <div className='w-1/3'>Blue</div>
                     </div>
@@ -85,27 +85,21 @@ function Personal({params: {modelName}}) {
                       <div className='w-1/3'>Hips</div>
                     </div>
                     <div className='flex -mt-1'>
-                      <div className='w-1/3'>76 / 30''</div>
-                      <div className='w-1/3'>58 / 23''</div>
-                      <div className='w-1/3'>89 / 35''</div>
+                      <div className='w-1/3'>76 / 30&x22;</div>
+                      <div className='w-1/3'>58 / 23&x22;</div>
+                      <div className='w-1/3'>89 / 35&x22;</div>
                     </div>
                     <div className='flex text-zinc-400 mt-3'>
                       <div className='w-1/3 '>
                         <div>Shoes</div>
                         <div className='text-black -mt-1'>37 / 7</div>
                       </div>
-                      {/* <div className='w-1/3 flex items-center' style={{}}>
-                        <InstagramLogo bgColour={"bg-zinc-100"} darkColour={"bg-zinc-500"} lightColour={"bg-zinc-50"} sizeFactor={1.5} />
-                      </div>
-                      <div className='w-1/3 flex items-center' style={{}}>
-                        <InstagramLogo bgColour={"bg-zinc-100"} darkColour={"bg-zinc-500"} lightColour={"bg-zinc-50"} sizeFactor={1.5} />
-                      </div> */}
                     </div>
                 </div>
                 <div className=''>
                   {
-                    [2,3,4].map(imageId => (
-                      <div className='w-1/1'><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
+                    [2,3,4].map((imageId, k) => (
+                      <div className='w-1/1' key={k}><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
                     ))
                   }
                 </div>
@@ -175,12 +169,12 @@ function Personal({params: {modelName}}) {
                       <div className='w-full'>Shoes</div>
                     </div>
                     <div className='flex -mt-1 w-full columns-7'>
-                      <div className='w-full'>176 / 5'9''</div>
+                      <div className='w-full'>176 / 5&apos;9&x22;</div>
                       <div className='w-full'>Blond</div>
                       <div className='w-full'>Blue</div>
-                      <div className='w-full'>76 / 30''</div>
-                      <div className='w-full'>58 / 23''</div>
-                      <div className='w-full'>89 / 35''</div>
+                      <div className='w-full'>76 / 30&x22;</div>
+                      <div className='w-full'>58 / 23&x22;</div>
+                      <div className='w-full'>89 / 35&x22;</div>
                       <div className='w-full'>37 / 7</div>
                     </div>
 
@@ -188,8 +182,8 @@ function Personal({params: {modelName}}) {
             {/* BOOK */}
             <div className='flex lg: columns-2 space-x-1'>
               {
-                [1,2,3,4].map(imageId => (
-                  <div className='w-1/4'><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
+                [1,2,3,4].map((imageId, m) => (
+                  <div className='w-1/4' key={m}><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
                 ))
               }
             </div>

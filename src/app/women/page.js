@@ -85,8 +85,8 @@ function Women() {
           
           <div className='grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-1 mx-2'>
             {
-              photos.map(model => {
-                return <a className='z-10' href={`/women/${model.name}`}>
+              photos.map((model, n) => {
+                return <a className='z-10' href={`/women/${model.name}`} key={n}> 
                   <Image
                     src={model.profileImage}
                     width={800}
