@@ -172,8 +172,8 @@ export default function Home() {
           <div className="hidden lg:grid lg:grid-cols-4 xl:hidden gap-2 mx-2">
               {
                 modelCategories.map((category, p) => {
-                  return  <div>
-                            <a href={`/${category.name}`} className="flex justify-center items-end" key={p}
+                  return  <div key={p}>
+                            <a href={`/${category.name}`} className="flex justify-center items-end"
                                   style={{
                                       background: `url(${category.image.src})`,
                                       backgroundSize: 'cover',
@@ -194,8 +194,8 @@ export default function Home() {
           <div className='hidden xl:grid xl:grid-cols-4 gap-2 mx-2'>
               {
                 modelCategories.map((category, q) => {
-                  return  <div>
-                            <a href={`/${category.name}`} className="flex justify-center items-end" key={q}
+                  return  <div key={q}>
+                            <a href={`/${category.name}`} className="flex justify-center items-end"
                                   style={{
                                       background: `url(${category.image.src})`,
                                       backgroundSize: 'cover',
