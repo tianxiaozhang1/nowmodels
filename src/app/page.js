@@ -5,13 +5,13 @@ import Link from 'next/link'
 
 import { Search as MagnifyingGlass, Heart as HeartIcon } from 'lucide-react';
 
-import { photos } from './images'
+// import { photos } from './images'
 import mainBG from './images/models/home/homex2b.jpg'
-import Image from "next/image";
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Gallery from './components/Gallery';
-import Page from './components/Page';
+// import Image from "next/image";
+// import Header from './components/Header';
+// import Footer from './components/Footer';
+// import Gallery from './components/Gallery';
+// import Page from './components/Page';
 
 import imageCategory from './images/models/home/image.jpg'
 import menCategory from './images/models/home/men.jpg'
@@ -77,10 +77,10 @@ export default function Home() {
                   <div className="">
                     <div className={`w-full flex justify-center text-5xl lg:text-9xl text-white`}>Now Models</div>
                     <div className={`w-full flex justify-between text-base lg:text-4xl -mt-1 lg:-mt-1`}>
-                        <Link href={"/women"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-50">Toronto</div></Link>      
-                        <Link href={"/newyork"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-400">New York</div></Link>
-                        <Link href={"/paris"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-50">Paris</div></Link>   
-                        <Link href={"/milan"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-50">Milan</div></Link>     
+                        <Link href={"/women"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-100">Toronto</div></Link>      
+                        <Link href={"/newyork"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">New York</div></Link>
+                        <Link href={"/paris"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Paris</div></Link>   
+                        <Link href={"/milan"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Milan</div></Link>     
                     </div>
                   </div>
               </div>
