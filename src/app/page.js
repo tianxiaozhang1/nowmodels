@@ -22,6 +22,8 @@ import ScrollRevealSection from '../effects/ScrollCoverEffect'
 
 import RightSideMenu from './components/RightSideMenu'
 
+import SearchOverlay from './components/SearchOverlay'
+
 const modelCategories = [
   {
     name: "women",
@@ -45,10 +47,10 @@ export default function Home() {
   const size = useWindowSize();
   const sectionTitle = `mt-5 md:mt-12 xl:mt-6 flex justify-center text-center cursor-default text-4xl md:text-5xl 2xl:text-8xl text-zinc-100 drop-shadow-[0_1px_1px_rgba(100,100,100,1)] ${playfairDisplay.className}`
   const gradientCSS = `w-full h-1/4 bg-gradient-to-b from-transparent to-zinc-950`
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   return (
     <div className="h-160vh lg:h-screen">
-
 
       {/* MAIN */}
 
@@ -62,25 +64,27 @@ export default function Home() {
       >
           
           <div className="w-full flex flex-col justify-between h-full">
-              <div className=" flex w-full">
+              <div className="flex w-full">
                   <div className="w-2/12 lg:w-2/12 text-gray-200">
-                      <MagnifyingGlass size={88} strokeWidth={1} className='cursor-pointer w-[32px] h-[32px] md:w-[68px] md:h-[68px] xl:w-[40px] xl:h-[40px]'/>
+                      <MagnifyingGlass onClick={() => setIsSearchVisible(true)} size={88} strokeWidth={1} className='cursor-pointer w-[32px] h-[32px] md:w-[68px] md:h-[68px] xl:w-[40px] xl:h-[40px]'/>
                   </div>
                   <div className="w-8/12 lg:w-8/12 flex justify-end text-gray-200">
-                      <HeartIcon size={88} strokeWidth={1} className='cursor-pointer w-[32px] h-[32px] md:w-[68px] md:h-[68px] xl:w-[36px] xl:h-[36px]'/>
+                      <Link href={"/favourites"}>
+                          <HeartIcon size={88} strokeWidth={1} className='cursor-pointer w-[32px] h-[32px] md:w-[68px] md:h-[68px] xl:w-[36px] xl:h-[36px]'/>
+                      </Link>
                   </div>
                   <div className="w-2/12 lg:w-2/12 flex justify-end">
-                      <RightSideMenu/>
+                      <RightSideMenu exactStyling="text-gray-100 w-[36px] h-[36px]" />
                   </div>
               </div>
               <div className={`uppercase ${playfairDisplay.className} flex justify-center `}>
                   <div className="">
                     <div className={`w-full flex justify-center text-5xl lg:text-9xl text-white`}>Now Models</div>
                     <div className={`w-full flex justify-between text-base lg:text-4xl -mt-1 lg:-mt-1`}>
-                        <Link href={"/women"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-100">Toronto</div></Link>      
-                        <Link href={"/newyork"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">New York</div></Link>
-                        <Link href={"/paris"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Paris</div></Link>   
-                        <Link href={"/milan"} target="_blank" rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Milan</div></Link>     
+                        <Link href={"/women"} rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-100">Toronto</div></Link>      
+                        <Link href={"/newyork"} rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">New York</div></Link>
+                        <Link href={"/paris"} rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Paris</div></Link>   
+                        <Link href={"/milan"} rel="noopener noreferrer"><div className="hover:text-gray-50 text-gray-300">Milan</div></Link>     
                     </div>
                   </div>
               </div>
@@ -216,6 +220,7 @@ export default function Home() {
           </div>
 
       {/* <Footer/> */}
+      {isSearchVisible && <SearchOverlay onClose={() => setIsSearchVisible(false)} />}
 
     </div>
   )

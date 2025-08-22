@@ -10,17 +10,35 @@ import { allPhotos, models, photos, importAll } from '../../images'
 // import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+import RightSideMenu from '../../components/RightSideMenu'
+
 function Personal({params: {modelName}}) {
 
     const size = useWindowSize();
+    const [isFavorite, setIsFavorite] = useState(false);
 
-    const modelPhotos = photos.filter(model =>
-      model.name === modelName
-    );
-
-    const modelFullName = modelPhotos.map(model => model.fullName)
-    // const profileSource = `../../images/models/women/${modelName}/1.JPG`;
+    const modelPhotos = photos.filter(model => model.name === modelName);
+    const modelFullName = modelPhotos.map(model => model.fullName);
     const profilePhoto = modelPhotos.map(model => model.profileImage);
+
+    useEffect(() => {
+        // Check localStorage for the model on page load
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        setIsFavorite(favorites.includes(modelName));
+    }, [modelName]);
+
+    const toggleFavorite = () => {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        if (isFavorite) {
+            // Remove from favorites
+            favorites = favorites.filter(name => name !== modelName);
+        } else {
+            // Add to favorites
+            favorites.push(modelName);
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        setIsFavorite(!isFavorite); // Toggle the state
+    };
 
     return (
         <>
@@ -47,16 +65,17 @@ function Personal({params: {modelName}}) {
                             <a className={` mt-0.5 ${playfairDisplay.className}`} href='/women'>WOMEN</a>
                           </div>
                           
-                          <div className='mt-1'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                          <div className='mt-1 text-gray-200'>
+                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                               <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg> */}
+                            <svg onClick={toggleFavorite} fill={isFavorite ? "currentColor" : "none"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 cursor-pointer">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                             </svg>
                           </div>
                       </div>
                       <div className='border-l-2 mt-1 border-stone-400 flex justify-center items-center' style={{width:60}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
+                        <RightSideMenu exactStyling="text-gray-50 w-[24px] h-[24px] mt-0" />
                       </div>
 
                     </div>
@@ -109,85 +128,93 @@ function Personal({params: {modelName}}) {
 
           {/* DESKTOP */}
           <div className='hidden lg:block bg-zinc-50'>
-            {/* TOP PAGE */}
-            <div className='lg:flex'>
-                <div className='lg:flex lg:w-1/2 2xl:w-2/3  '>
-                  <div className='lg:w-1/3 2xl:w-1/5 lg:flex lg:pt-12 2xl:pt-20 lg:pl-12 2xl:pl-20'>
-                    {/* LEFT NAVIGATION */}
-                    <div className='text-zinc-400'>
-                      <div className='mt-2 cursor-pointer'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
+              {/* TOP PAGE */}
+              <div className='lg:flex'>
+                  <div className='lg:flex lg:w-1/2 2xl:w-2/3  '>
+                    <div className='lg:w-1/3 2xl:w-1/5 lg:flex lg:pt-12 2xl:pt-20 lg:pl-12 2xl:pl-20'>
+                      {/* LEFT NAVIGATION */}
+                      <div className='text-zinc-400 flex flex-col justify-between h-full pb-12'>
+                          <div>
+                              <div className='mt-2 cursor-pointer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                              </div>
+                              <div className='lg:mt-12 2xl:mt-32 text-sm xl:text-md'>
+                                <div className='cursor-pointer'>Book</div>
+                                <a target="_blank" href="https://www.instagram.com/tianxiaozhang/" rel="noopener noreferrer"><div>Instagram</div></a>
+                              </div>
+                          </div>
+                          <div>
+                              {/* HEART ICON */}
+                              <svg onClick={toggleFavorite} fill={isFavorite ? "currentColor" : "none"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 xl:size-7 mt-1 cursor-pointer">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                              </svg>
+                          </div>
                       </div>
-                      <div className='lg:mt-12 2xl:mt-32 text-sm xl:text-md'>
-                        <div className='cursor-pointer'>Book</div>
-                        <a target="_blank" href="https://www.instagram.com/tianxiaozhang/" rel="noopener noreferrer"><div>Instagram</div></a>
-                      </div>
-                    </div>
 
-                  </div>
-                  <div className='lg:w-2/3 2xl:w-4/5 '>
-                    <div className='lg:pt-12 2xl:pt-20  ' style={{height:200}}>
-                      <div className={`flex lg:text-2xl xl:text-4xl ${playfairDisplay.className}`}>
-                        <a className='text-zinc-400' href='/'>NOW MODELS</a>
-                        <div className='text-zinc-400'>&nbsp;-&nbsp;</div>
-                        <a className='text-zinc-600' href='/women'>WOMEN</a>
+                    </div>
+                    <div className='lg:w-2/3 2xl:w-4/5 '>
+                      <div className='lg:pt-12 2xl:pt-20  ' style={{height:200}}>
+                        <div className={`flex lg:text-2xl xl:text-4xl ${playfairDisplay.className}`}>
+                          <a className='text-zinc-400' href='/'>NOW MODELS</a>
+                          <div className='text-zinc-400'>&nbsp;-&nbsp;</div>
+                          <a className='text-zinc-600' href='/women'>WOMEN</a>
+                        </div>
+                      </div>
+                      
+                      <div className=' flex items-center' style={{height:size.height-400}}>
+                        <div className={`lg:hidden 2xl:flex justify-end text-end text-9xl mr-6 w-full cursor-default ${playfairDisplay.className}`}>{modelFullName}</div>
+                      </div>
+                      <div className='' style={{height:200}}>
+                        <div className=''></div>
+                        <div className={`lg:flex 2xl:hidden justify-end text-end text-6xl mr-4 ${playfairDisplay.className}`}>{modelFullName}</div>
                       </div>
                     </div>
+                  </div>
+                  <div className='py-40 lg:w-1/2 2xl:w-1/3'
+                        style={{
+                          backgroundImage: `url(${profilePhoto[0].src})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          alt: "X",
+                          opacity: 1,
+                          height: size.height,
+                        }}>
                     
-                    <div className=' flex items-center' style={{height:size.height-400}}>
-                      <div className={`lg:hidden 2xl:flex justify-end text-end text-9xl mr-6 w-full cursor-default ${playfairDisplay.className}`}>{modelFullName}</div>
-                    </div>
-                    <div className='' style={{height:200}}>
-                      <div className=''></div>
-                      <div className={`lg:flex 2xl:hidden justify-end text-end text-6xl mr-4 ${playfairDisplay.className}`}>{modelFullName}</div>
-                    </div>
                   </div>
-                </div>
-                <div className='py-40 lg:w-1/2 2xl:w-1/3'
-                      style={{
-                        backgroundImage: `url(${profilePhoto[0].src})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        alt: "X",
-                        opacity: 1,
-                        height: size.height,
-                      }}>
-                  
-                </div>
-            </div>
-            {/* MEASUREMENTS */}
-            <div className='bg-zinc-100 py-12 pl-32 pr-10' style={{}}>
-                    <div className='flex text-zinc-400 w-full columns-7'>
-                      <div className='w-full'>Height</div>
-                      <div className='w-full'>Hair</div>
-                      <div className='w-full'>Eyes</div>
-                      <div className='w-full'>Bust</div>
-                      <div className='w-full'>Waist</div>
-                      <div className='w-full'>Hips</div>
-                      <div className='w-full'>Shoes</div>
-                    </div>
-                    <div className='flex -mt-1 w-full columns-7'>
-                      <div className='w-full'>176 / 5&apos;9&quot;</div>
-                      <div className='w-full'>Blond</div>
-                      <div className='w-full'>Blue</div>
-                      <div className='w-full'>76 / 30&quot;</div>
-                      <div className='w-full'>58 / 23&quot;</div>
-                      <div className='w-full'>89 / 35&quot;</div>
-                      <div className='w-full'>37 / 7</div>
-                    </div>
+              </div>
+              {/* MEASUREMENTS */}
+              <div className='bg-zinc-100 py-12 pl-32 pr-10' style={{}}>
+                      <div className='flex text-zinc-400 w-full columns-7'>
+                        <div className='w-full'>Height</div>
+                        <div className='w-full'>Hair</div>
+                        <div className='w-full'>Eyes</div>
+                        <div className='w-full'>Bust</div>
+                        <div className='w-full'>Waist</div>
+                        <div className='w-full'>Hips</div>
+                        <div className='w-full'>Shoes</div>
+                      </div>
+                      <div className='flex -mt-1 w-full columns-7'>
+                        <div className='w-full'>176 / 5&apos;9&quot;</div>
+                        <div className='w-full'>Blond</div>
+                        <div className='w-full'>Blue</div>
+                        <div className='w-full'>76 / 30&quot;</div>
+                        <div className='w-full'>58 / 23&quot;</div>
+                        <div className='w-full'>89 / 35&quot;</div>
+                        <div className='w-full'>37 / 7</div>
+                      </div>
 
-                </div>
-            {/* BOOK */}
-            <div className='flex lg: columns-2 space-x-1'>
-              {
-                [1,2,3,4].map((imageId, m) => (
-                  <div className='w-1/4' key={m}><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
-                ))
-              }
-            </div>
-            <Footer/>
+                  </div>
+              {/* BOOK */}
+              <div className='flex lg: columns-2 space-x-1'>
+                {
+                  [1,2,3,4].map((imageId, m) => (
+                    <div className='w-1/4' key={m}><Image key={imageId} src={require(`../../images/models/women/${modelName}/${imageId}.jpg`)} alt="" /></div>
+                  ))
+                }
+              </div>
+              <Footer/>
           </div>
         </>
     )

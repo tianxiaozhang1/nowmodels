@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { X as XButton, Menu as MenuButton } from 'lucide-react';
 import { playfairDisplay } from '@/fonts';
 
-const RightSideMenu = () => {
+const RightSideMenu = ({ exactStyling }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // State to control the transition timing function dynamically
     const [transitionTimingClass, setTransitionTimingClass] = useState('ease-in-out'); 
@@ -64,8 +64,8 @@ const RightSideMenu = () => {
     return (
         <>
             {/* Toggle Button */}
-            <div className='text-gray-100'>
-                <MenuButton ref={toggleButtonRef} onClick={openMenu} size={88} strokeWidth={1} className='cursor-pointer w-[36px] h-[36px] md:w-[68px] md:h-[68px] xl:w-[40px] xl:h-[40px] -mt-0.5 xl:-mt-1'/>
+            <div className=''>
+                <MenuButton exactStyling={exactStyling} ref={toggleButtonRef} onClick={openMenu} size={88} strokeWidth={1} className={`${exactStyling} cursor-pointer md:w-[68px] md:h-[68px] xl:w-[40px] xl:h-[40px] -mt-0.5 xl:-mt-1`}/>
             </div>
 
             {/* Right Side Pop-up Menu */}
@@ -83,10 +83,10 @@ const RightSideMenu = () => {
                 {/* Menu Content */}
                 <div className="flex justify-between items-center pt-11 xl:pt-15p text-gray-400">
                     <h2 className={`mt-2 lg:mt-1 text-base lg:text-2xl h-full w-2/3 flex space-x-2 lg:space-x-6  ${playfairDisplay.className}`}>
-                        <Link href={"/women"} target="_blank" rel="noopener noreferrer"><div className="text-gray-800">Toronto</div></Link>      
-                        <Link href={"/newyork"} target="_blank" rel="noopener noreferrer"><div className="">New York</div></Link>
-                        <Link href={"/paris"} target="_blank" rel="noopener noreferrer"><div className="">Paris</div></Link>   
-                        <Link href={"/milan"} target="_blank" rel="noopener noreferrer"><div className="">Milan</div></Link>  
+                        <Link href={"/women"}  rel="noopener noreferrer"><div className="text-gray-800">Toronto</div></Link>      
+                        <Link href={"/newyork"} rel="noopener noreferrer"><div className="">New York</div></Link>
+                        <Link href={"/paris"}  rel="noopener noreferrer"><div className="">Paris</div></Link>   
+                        <Link href={"/milan"}  rel="noopener noreferrer"><div className="">Milan</div></Link>  
                     </h2>
                     <div className='pr-6 xl:pr-15 text-gray-600 w-1/3 flex justify-end'>
                         <XButton onClick={closeMenu} size={88} strokeWidth={1} className='cursor-pointer w-[36px] h-[36px] md:w-[68px] md:h-[68px] xl:w-[40px] xl:h-[40px]'/>
@@ -95,16 +95,16 @@ const RightSideMenu = () => {
 
                 <div className='space-y-8 lg:space-y-12'>
                     <div className={`space-y-2 lg:space-y-4 text-3xl lg:text-5xl text-stone-600 uppercase ${playfairDisplay.className}`}>
-                        <Link href={"/women"} target="_blank" rel="noopener noreferrer">
+                        <Link href={"/women"}  rel="noopener noreferrer">
                             <div className="block hover:text-gray-800 transition-colors duration-200">Women</div></Link>
-                        <Link href={"/curve"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Curve</div></Link>
-                        <Link href={"/men"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Men</div></Link>
-                        <Link href={"/image"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Image</div></Link>
+                        <Link href={"/curve"}  rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Curve</div></Link>
+                        <Link href={"/men"}  rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Men</div></Link>
+                        <Link href={"/image"}  rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Image</div></Link>
                     </div>
                     <div className={`space-y-2 lg:space-y-4 text-xl lg:text-3xl text-stone-600 `}>
-                        <Link href={"/philosophy"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Our Philosophy</div></Link>
-                        <Link href={"/contact"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Contact Us</div></Link>
-                        <Link href={"/become"} target="_blank" rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Become a Model</div></Link>
+                        <Link href={"/philosophy"} rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Our Philosophy</div></Link>
+                        <Link href={"/contact"} rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Contact Us</div></Link>
+                        <Link href={"/become"} rel="noopener noreferrer"><div  href="#" className="block hover:text-gray-800 transition-colors duration-200">Become a Model</div></Link>
                     </div>
                 </div>
 
