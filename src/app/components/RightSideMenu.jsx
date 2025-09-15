@@ -73,7 +73,7 @@ const RightSideMenu = ({ exactStyling }) => {
                 ref={menuRef} // Attach ref to the menu div
                 className={`
                     fixed top-0 right-0 h-screen bg-gray-100 shadow-lg z-[1000]
-                    w-full sm:w-9/12 md:w-1/2 lg:w-2/5
+                    w-full sm:w-9/12 md:w-1/2 lg:w-1/2 2xl:w-2/5
                     transition-transform duration-300 
                     ${transitionTimingClass} 
                     ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} 
@@ -82,7 +82,7 @@ const RightSideMenu = ({ exactStyling }) => {
             >
                 {/* Menu Content */}
                 <div className="flex justify-between items-center pt-11 xl:pt-15p text-gray-400">
-                    <h2 className={`mt-2 lg:mt-1 text-base lg:text-2xl h-full w-2/3 flex space-x-2 lg:space-x-6  ${playfairDisplay.className}`}>
+                    <h2 className={`mt-2 lg:mt-1 text-base lg:text-lg 2xl:text-2xl h-full w-2/3 flex space-x-4 xl:space-x-6  ${playfairDisplay.className}`}>
                         <Link href={"/women"}  rel="noopener noreferrer"><div className="text-gray-800">Toronto</div></Link>      
                         <Link href={"/newyork"} rel="noopener noreferrer"><div className="">New York</div></Link>
                         <Link href={"/paris"}  rel="noopener noreferrer"><div className="">Paris</div></Link>   
